@@ -1,0 +1,12 @@
+requests
+pandas
+pyarrow
+duckdb
+fastapi
+uvicorn[standard]
+openpyxl
+sqlalchemy
+sqlalchemy-utils
+pydantic
+yfinance
+xlrd
