@@ -95,12 +95,10 @@ METADATA_CATALOG = {
 def read_root():
     return {"message": "API Analytique des Énergies Renouvelables"}
 
-
 @app.get("/sources", summary="Lister toutes les sources disponibles")
 def list_sources() -> list[str]:
     """Return the list of available dataset names."""
     return get_available_sources()
-
 
 @app.get(
     "/sources_with_metadata", summary="Lister toutes les sources avec leurs métadonnées"
