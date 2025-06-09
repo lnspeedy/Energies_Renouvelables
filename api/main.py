@@ -1,11 +1,15 @@
+"""Backend API exposing processed renewable energy datasets."""
+
 # api/main.py (Version 2.2 - Simplifiée et Corrigée)
 import duckdb
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
+
 from pathlib import Path
-import pandas as pd
 from typing import Optional
+
+import pandas as pd
+from fastapi.responses import JSONResponse
 
 # --- Configuration ---
 PROCESSED_DATA_PATH = Path(__file__).parent.parent / "data" / "processed"
@@ -90,6 +94,12 @@ METADATA_CATALOG = {
 @app.get("/")
 def read_root():
     return {"message": "API Analytique des Énergies Renouvelables"}
+
+
+@app.get("/sources", summary="Lister toutes les sources disponibles")
+def list_sources() -> list[str]:
+    """Return the list of available dataset names."""
+    return get_available_sources()
 
 
 @app.get(
