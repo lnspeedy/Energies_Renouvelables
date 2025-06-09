@@ -5,8 +5,9 @@ structure = {
     "data": ["raw/", "processed/"],
     "api": ["main.py"],
     "scripts": ["extract_all.py", "transform_all.py", "schemas.py"],
-    "": ["requirements.txt"]
+    "": ["requirements.txt"],
 }
+
 
 def create_structure(base_path, structure):
     for key, value in structure.items():
@@ -21,9 +22,10 @@ def create_structure(base_path, structure):
                 if item.endswith("/"):
                     os.makedirs(item_path, exist_ok=True)
                 else:
-                    open(item_path, 'a').close()
+                    open(item_path, "a").close()
         else:
             raise ValueError("Structure inattendue")
+
 
 if __name__ == "__main__":
     base_dir = "."  # ou change vers un chemin spécifique
