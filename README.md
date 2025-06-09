@@ -10,6 +10,9 @@ This project provides a small data pipeline and API exposing processed datasets 
   - `transform_all.py` cleans the raw files and saves partitioned Parquet files.
   - `schemas.py` defines Pandas dtypes used during transformations.
 - **api/** exposes a FastAPI service to query processed data stored in `data/processed`.
+
+- **ihm/** contains a small React interface to explore the datasets.
+
 - **data/** contains example raw and processed data.
 
 A small helper script `te.py` can create the project folder structure.
@@ -44,6 +47,18 @@ uvicorn api.main:app --reload
 
 The API will be available at `http://localhost:8000` and provides routes to list
 available data sources and filter records dynamically.
+
+
+5. Start the React interface:
+
+```bash
+cd ihm
+npm install
+npm start
+```
+
+The interface will open on `http://localhost:3000` and allows you to explore the datasets interactively.
+
 
 ## Notes
 
